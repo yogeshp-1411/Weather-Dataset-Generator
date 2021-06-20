@@ -1,3 +1,6 @@
+"""
+Website credits to www.worldweatheronline.com. Parsing the data provided by them as it provides a good documentation of data.
+"""
 from selenium import webdriver
 import xlsxwriter
 from xlwt import Workbook
@@ -11,13 +14,17 @@ class WebAutomation():
         self.firefox_path = "C:/Program Files/Mozilla Firefox"
         self.wb = Workbook()
         self.web = webdriver.Firefox(self.firefox_path)
-        self.place = input("Enter the place you want to record the time for. Should be a single word")
-        self.state = input("Enter the state to which the city belongs.")
+        self.place = input("Enter the place you want to record the time for. Should be a single word. ")
+        self.state = input("Enter the state to which the city belongs. ")
         self.country = input("Enter the country abbreviation. Example:  India=in, Germany=de, etc. ")
         self.link = "https://www.worldweatheronline.com/" + self.place + "-weather-history/"+self.state+"/" + self.country + ".aspx"
         self.web.get(self.link)
 
-        year = 2021
+        try:
+            year = int(input("Enter year for which dataset is to be created "))
+        except:
+            print("Error in conversion. Please enter only numbers")
+            sys.exit(0)
         todayDate = date.today()
         td = todayDate.strftime("%d %m %Y").split(" ")
         for month in range(1, 13):
