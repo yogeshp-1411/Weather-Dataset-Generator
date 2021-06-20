@@ -11,3 +11,4 @@ Python script to generate a weather dataset done by using web automation using S
 # How to Use?
 1) Provide inputs as requested by the script. Note: All the inputs should be in lowercase. 
 2) Abrreviations should be used for entering country name. Example: If searching for a place in India, then "in", If searching for a place in Germany, then "de" and so on.
+3) All the ouptut files will be stored in the output folder.
